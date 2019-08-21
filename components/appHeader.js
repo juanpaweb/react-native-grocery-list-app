@@ -1,6 +1,13 @@
 import React from 'react';
-import { View } from 'react-native';
+import { connect } from 'react-redux';
+import { View, Text } from 'react-native';
 import { Header } from 'react-native-elements';
+
+const mapStateToProps = state => ({
+  ...state
+});
+
+const mapDispatchToProps = dispatch => ({});
 
 class AppHeader extends React.Component {
   render() {
@@ -17,4 +24,4 @@ class AppHeader extends React.Component {
   }
 }
 
-export default AppHeader;
+export default connect(mapStateToProps, mapDispatchToProps)(AppHeader);
