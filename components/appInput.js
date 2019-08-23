@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => ({});
 class AppInput extends React.Component {
   render() {
     return (
-      <View>
+      <View style={{ paddingBottom: 10 }}>
         <KeyboardAvoidingView>
           <Input 
             placeholder="Enter Item Name" 
