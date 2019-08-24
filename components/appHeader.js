@@ -19,6 +19,11 @@ class AppHeader extends React.Component {
           centerComponent={{ text: 'Grocery List', style: { color: '#fff' } }}
           containerStyle={{ backgroundColor: 'green', justifyContent: 'space-around' }}
         />
+        <Text>
+          {
+            JSON.stringify(this.props)
+          }
+        </Text>
       </View>
     )
   }
