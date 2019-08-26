@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, KeyboardAvoidingView, Text } from 'react-native';
+import { View, KeyboardAvoidingView, Alert } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import * as groceryActions from '../redux/actions/groceryList';
 
@@ -19,8 +19,8 @@ class AppInput extends React.Component {
    this.props.setItemText(inputText);
  }
 
-  _addListItem = () => {
-    return
+  _addListItem(itemName) {
+    console.log(this.props.groceryList.inputText);
   }
 
   render() {
@@ -34,7 +34,7 @@ class AppInput extends React.Component {
           <Button
             title="Add Item"
             type="solid"
-            onPress={() => this._addListItem}
+            onPress={() => this._addListItem()}
           />
         </KeyboardAvoidingView>
       </View>

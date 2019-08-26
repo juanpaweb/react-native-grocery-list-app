@@ -1,6 +1,5 @@
 import types from '../types/groceryList';
-
-let itemId = 0;
+import uuid from 'uuid';
 
 export const setItemText = (itemText) => dispatch => {
   dispatch({
@@ -12,7 +11,7 @@ export const setItemText = (itemText) => dispatch => {
 export const addItemToList = (itemName) => dispatch => {
   dispatch({
     type: types.ADD_ITEM_TO_LIST,
-    itemId: itemId++,
+    itemId: uuid.v4(),
     itemName: itemName
   });
 };
