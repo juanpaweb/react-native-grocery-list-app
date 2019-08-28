@@ -1,9 +1,6 @@
 import types from '../types/groceryList';
-import { loadState, saveState } from '../persistState';
 
-const loadedState = loadState();
-
-const groceryList = (state = loadedState, action) => {
+const groceryList = (state = {}, action) => {
   switch (action.type) {
     case types.SET_ITEM_TEXT:
       return {
