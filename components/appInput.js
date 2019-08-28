@@ -19,7 +19,7 @@ class AppInput extends React.Component {
    this.props.setItemText(inputText);
  }
 
-  _addListItem(itemName) {
+  _addListItem() {
     console.log(this.props.groceryList.inputText);
   }
 
