@@ -1,16 +1,19 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import AppContainer from './components/appContainer';
-import configureStore from './redux/store';
+import { store, persistor } from './redux/store';
 
 class App extends React.Component {
   render() {
     return (
-      <Provider store={configureStore()}>
-        <View style={styles.container}>
-          <AppContainer/>
-        </View>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <View style={styles.container}>
+            <AppContainer/>
+          </View>
+        </PersistGate>
       </Provider>
     );
   }

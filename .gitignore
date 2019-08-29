@@ -9,3 +9,6 @@ npm-debug.*
 *.orig.*
 web-build/
 web-report/
+
+# file to keep notes on project
+notes.txt
