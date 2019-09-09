@@ -16,15 +16,24 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
+// Set to true to disable redux-logger
+const PRODUCTION = false;
 
-const configureStore = () => {
+const configProdStore = () => {
+  return createStore(
+    persistReducer,
+    compose(applyMiddleware(ReduxThunk))
+  );
+};
+
+const configDevStore = () => {
   return createStore(
     persistedReducer,
     compose(applyMiddleware(ReduxThunk, logger))
   );
 };
 
-const store = configureStore();
+const store = PRODUCTION ? configProdStore() : configDevStore();
 
 let persistor = persistStore(store);
 

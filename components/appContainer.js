@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { View, StyleSheet } from 'react-native';
 import AppHeader from './appHeader';
 import AppInput from './appInput';
+import AppList from './appList';
 
 const mapStateToProps = state => ({
   ...state
@@ -15,6 +16,7 @@ class AppContainer extends React.Component {
     return (
       <View style={styles.container}>
         <AppHeader/>
+        <AppList/>
         <AppInput/>
       </View>
     )
