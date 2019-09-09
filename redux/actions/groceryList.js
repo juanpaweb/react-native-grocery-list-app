@@ -9,9 +9,10 @@ export const addItemToList = (itemName) => dispatch => {
   });
 };
 
-export const removeItemFromList = (id) => dispatch => {
+export const removeItemFromList = (itemId) => dispatch => {
   dispatch({
-    type: types.REMOVE_ITEM_FROM_LIST
+    type: types.REMOVE_ITEM_FROM_LIST,
+    itemId: itemId
   });
 };
 

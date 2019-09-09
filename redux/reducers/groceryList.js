@@ -11,7 +11,8 @@ const groceryList = (state = [], action) => {
         }
       ];
     case types.REMOVE_ITEM_FROM_LIST:
-      return state;
+      const filteredState = state.filter(item => item.itemId !== action.itemId);
+      return filteredState;
     case types.REMOVE_ALL_FROM_LIST:
       return [];
     default:
