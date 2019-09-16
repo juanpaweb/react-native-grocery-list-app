@@ -15,4 +15,4 @@ and be persistent. Also(IMO) it looks better.
 
 ## Note:
 This app was tested on a Pixel 3a AVD(Android Virtual Device) from Android Studio.  
-With this in consideration some of the placements of the text(mainly the DELETE text may be off)
+With this in consideration some of the placements of the text(mainly the DELETE text) may be off.
