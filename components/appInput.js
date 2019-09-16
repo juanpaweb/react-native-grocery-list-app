@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, KeyboardAvoidingView } from 'react-native';
+import { View, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { Input, Button } from 'react-native-elements';
+import { Platform } from '@unimodules/core';
 import * as groceryActions from '../redux/actions/groceryList';
 import * as formActions from '../redux/actions/formInput';
 
@@ -15,6 +16,19 @@ const mapDispatchToProps = dispatch => ({
   addItemToList: (itemName) => dispatch(groceryActions.addItemToList(itemName))
 });
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'space-between'
+  },
+  addButton: {
+    fontSize: 15
+  }
+});
+
+// NOTE: This was developed using an ANDROID emulator. IOS results may vary
+const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 0;
+
 class AppInput extends React.Component {
 
  _handleInputChange(inputText) {
@@ -23,26 +37,36 @@ class AppInput extends React.Component {
 
   _addListItem() {
     const inputText = this.props.formInput.formText;
-    const itemName = inputText ? inputText : '' || undefined;
-    this.props.addItemToList(itemName);
-    this.props.clearFormText();
+    const itemName = inputText != undefined ? inputText : undefined;
+    if (itemName) {
+      this.props.addItemToList(itemName);
+      this.props.clearFormText();
+      this.textInput.current.clear();
+    } else {
+      return;
+    }
   }
+
+  textInput = React.createRef();
 
   render() {
     return (
-      <View>
-        <KeyboardAvoidingView>
-          <Input
-            placeholder="Enter Item Name"
-            onChangeText={(text) => this._handleInputChange(text)}
-          />
-          <Button
-            title="Add Item"
-            type="solid"
-            onPress={() => this._addListItem()}
-          />
-        </KeyboardAvoidingView>
-      </View>
+      <KeyboardAvoidingView
+        behavior="position"
+        keyboardVerticalOffset={keyboardVerticalOffset}
+      >
+        <Input
+          ref={this.textInput}
+          placeholder="Enter Item Name"
+          onChangeText={(text) => this._handleInputChange(text)}
+        />
+        <Button
+          style={styles.addButton}
+          title="Add Item"
+          type="solid"
+          onPress={() => this._addListItem()}
+        />
+      </KeyboardAvoidingView>
     )
   }
 }
