@@ -1,7 +1,8 @@
 # react-native-grocery-list-app
-**Tested on a ANDROID emulator. Has NOT been tested on an IOS device.**
+**Tested on a ANDROID emulator. Has NOT been tested on an IOS device.**  
 More or less an improved version of my react-native-to-do-list app. This one is able to save the data  
 and be persistent. Also(IMO) it looks better.
+** Requires `expo-cli` to run **
 
 ## To Run
 **Emulator/Device is required**
