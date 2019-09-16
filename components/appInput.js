@@ -37,10 +37,17 @@ class AppInput extends React.Component {
 
   _addListItem() {
     const inputText = this.props.formInput.formText;
-    const itemName = inputText ? inputText : '' || undefined;
-    this.props.addItemToList(itemName);
-    this.props.clearFormText();
+    const itemName = inputText != undefined ? inputText : undefined;
+    if (itemName) {
+      this.props.addItemToList(itemName);
+      this.props.clearFormText();
+      this.textInput.current.clear();
+    } else {
+      return;
+    }
   }
+
+  textInput = React.createRef();
 
   render() {
     return (
@@ -49,9 +56,9 @@ class AppInput extends React.Component {
         keyboardVerticalOffset={keyboardVerticalOffset}
       >
         <Input
+          ref={this.textInput}
           placeholder="Enter Item Name"
           onChangeText={(text) => this._handleInputChange(text)}
-          value={this.props.formInput.formText}
         />
         <Button
           style={styles.addButton}

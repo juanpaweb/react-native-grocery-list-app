@@ -36,8 +36,8 @@ class AppHeader extends React.Component {
     return (
       <Header
         placement="left"
-        centerComponent={{ text: 'Grocery List', style: { color: '#fff' } }}
-        rightComponent={{ text: 'Clear All', onPress: () => { this._clearAllConfirmation() } }}
+        centerComponent={{ text: 'Grocery List', style: { color: '#fff', fontSize: 20 } }}
+        rightComponent={{ text: 'Clear All', style: { paddingRight: 2, fontSize: 15 }, onPress: () => { this._clearAllConfirmation() } }}
         containerStyle={{ backgroundColor: 'green', justifyContent: 'space-around' }}
       > 
       </Header>

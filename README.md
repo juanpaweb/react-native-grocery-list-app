@@ -12,3 +12,7 @@ and be persistent. Also(IMO) it looks better.
 5. Then if running on **LAN** with an emulator open(ex: Emulator from Android Studio(AVD)) press `Run on android device/emulator`
 6. If this is a new device(At least if it is a android emulator) it will install the expo app, then run the projects app.
 7. Once the Javascript is bundled test out the app.
+
+## Note:
+This app was tested on a Pixel 3a AVD(Android Virtual Device) from Android Studio.  
+With this in consideration some of the placements of the text(mainly the DELETE text may be off)
