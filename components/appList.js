@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { View, Text, StyleSheet } from 'react-native';
 import { SwipeListView } from 'react-native-swipe-list-view';
 import * as groceryActions from '../redux/actions/groceryList';
-import AppInput from './appInput';
 
 const mapStateToProps = state => ({
   ...state

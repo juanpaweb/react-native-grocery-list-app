@@ -1,23 +1,46 @@
 import React from 'react';
+import { Alert } from 'react-native';
 import { connect } from 'react-redux';
-import { View } from 'react-native';
 import { Header } from 'react-native-elements';
+import * as groceryActions from '../redux/actions/groceryList';
 
 const mapStateToProps = state => ({
   ...state
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  removeAllFromList: () => dispatch(groceryActions.removeAllFromList())
+});
 
 class AppHeader extends React.Component {
+  
+  _clearAllConfirmation() {
+    Alert.alert(
+      'Clear All',
+      'Are you sure you want to clear all items?',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel'),
+          style: 'cancel'
+        },
+        {
+          text: 'Yes',
+          onPress: () => { this.props.removeAllFromList(); }
+        }
+      ]
+    );
+  }
+  
   render() {
     return (
       <Header
         placement="left"
-        leftComponent={{ icon: 'menu', color: '#fff' }}
         centerComponent={{ text: 'Grocery List', style: { color: '#fff' } }}
+        rightComponent={{ text: 'Clear All', onPress: () => { this._clearAllConfirmation() } }}
         containerStyle={{ backgroundColor: 'green', justifyContent: 'space-around' }}
-      />
+      > 
+      </Header>
     )
   }
 }

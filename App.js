@@ -2,8 +2,8 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
-import AppContainer from './components/appContainer';
 import { store, persistor } from './redux/store';
+import AppContainer from './components/appContainer';
 
 class App extends React.Component {
   render() {

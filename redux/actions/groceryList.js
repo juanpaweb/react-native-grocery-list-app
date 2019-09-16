@@ -16,7 +16,7 @@ export const removeItemFromList = (itemId) => dispatch => {
   });
 };
 
-export const removeAllFromList = () => {
+export const removeAllFromList = () => dispatch => {
   dispatch({
     type: types.REMOVE_ALL_FROM_LIST
   });
